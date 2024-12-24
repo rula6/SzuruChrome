@@ -139,6 +139,17 @@ wnd.szc_set_config_version = (v = 0) => (cfg.value.version = v);
               </p>
             </div>
 
+            <div class="col-12 md:col-6">
+              <label>Tagging Server URL</label>
+              <input
+                text="Tagging Server URL"
+                type="text"
+                name="domain"
+                v-model="cfg.taggingServer"
+              />
+            </div>
+
+ 
             <span class="col-12 status-quiet">{{ versionInfo }}</span>
           </div>
         </TabPanel>
