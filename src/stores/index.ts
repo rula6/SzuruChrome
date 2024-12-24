@@ -39,6 +39,7 @@ export const cfg = useStorageLocal(
       showInstancePicker: true,
     },
     tagCategories: [] as Array<TagCategoryColor>,
+    taggingServer: "",
   },
   {
     mergeDefaults(storageValue, defaults) {

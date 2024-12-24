@@ -148,6 +148,15 @@ wnd.szc_set_config_version = (v = 0) => (cfg.value.version = v);
                 This will always upload the image content directly, instead of
                 as an URL
               </p>
+              <label>
+              <input
+                text="Tagging Server URL"
+                type="text"
+                name="domain"
+                v-model="cfg.taggingServer"
+              />
+              Tagging Server URL
+              </label>
             </div>
 
             <span class="col-12 status-quiet">{{ versionInfo }}</span>
