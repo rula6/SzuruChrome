@@ -313,7 +313,12 @@ async function updatePostWithRemoteInfo(post: ScrapedPostDetails, contentUrl: st
   // If you want access to the cookies/session/etc then you need to execute this code inside the content script.
   try {
     // This request follows redirects.
-    const res = await fetch(contentUrl, { method: "HEAD" });
+    
+    const additional_headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36",
+        "referer": contentUrl,
+    }
+    const res = await fetch(contentUrl, { method: "HEAD", ...additional_headers });
     const size = res.headers.get("Content-Length");
     const type = res.headers.get("Content-Type");
 
