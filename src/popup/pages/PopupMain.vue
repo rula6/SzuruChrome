@@ -301,9 +301,8 @@ async function loadTagCounts() {
     if (resp) {
       for (let post of pop.posts)
         for (let tag of resp.results) {
-          // @ts-expect-error .find() can't return undefined because the resp.results list can only contain
-          // the tags which we requested. And we only request the tags which are already set on the post.
-          post.tags.find((postTag) => tag.names.includes(postTag.name)).usages = tag.usages;
+          const postTag = post.tags.find((postTag) => tag.names.includes(postTag.name));
+          if(postTag) postTag.usages = tag.usages;
         }
     }
   }
